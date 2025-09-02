@@ -14,10 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
-        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
-        'archivo': ['Archivo', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        "space-grotesk": ["Space Grotesk", "sans-serif"],
+        bricolage: ["Bricolage Grotesque", "sans-serif"],
+        archivo: ["Archivo", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
