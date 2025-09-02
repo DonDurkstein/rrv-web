@@ -281,8 +281,8 @@ export default function Index() {
       {/* Footer */}
       <footer className="relative py-20">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="bg-white/10 border border-white/20 rounded-2xl p-12 backdrop-blur-sm">
-            <div className="grid lg:grid-cols-2 gap-16">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 lg:p-12 backdrop-blur-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* Left Column - Company Info */}
               <div className="space-y-8">
                 <img 
