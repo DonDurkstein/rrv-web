@@ -10,11 +10,12 @@ import {
 } from "lucide-react";
 import Silk from "../components/Silk";
 import GradientText from "../components/GradientText";
-import React, { useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { MobileMenu } from '../components/MobileMenu';
-
+import Orbiting from '../components/orbiting';
 const LazySilk = React.lazy(() => import('../components/Silk'));
+import { Globe } from "../components/magicui/globe";
 
 const useScrollAnimation = (animationClass: string, delay: string, threshold: number = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -92,7 +93,8 @@ export default function Index() {
       <ArrowRight className="w-6 h-4" />
     </button>
   );
-
+  const currentYear = new Date();
+  const [year, setYear] = useState(currentYear.getFullYear());
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navigation Header */}
@@ -151,18 +153,15 @@ export default function Index() {
           </Suspense>
         </div>
         {/* Background Effects */}
-        <div ref={heroBackgroundEffectRef} className="absolute top-0 left-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl opacity-70 -translate-x-32 -translate-y-12 transform rotate-12 z-10 opacity-0"></div>
+        <div ref={heroBackgroundEffectRef} className="absolute top-0 left-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl -translate-x-32 -translate-y-12 transform rotate-12 z-10 opacity-0"></div>
 
-        <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-5 gap-12 items-center relative z-10">
           {/* Left Column - Text Content */}
-          <div ref={heroTextContentRef} className="space-y-8 opacity-0">
+          <div ref={heroTextContentRef} className=" flex flex-col space-y-8 opacity-0">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-center lg:text-left">
                 <span className="font-space-grotesk text-white block">
-                  A different way
-                </span>
-                <span className="font-space-grotesk text-white block">
-                  to make
+                  A different way to make
                 </span>
                 <GradientText
                   className="inline-block mt-4 text-7xl md:text-8xl lg:text-9xl"
@@ -174,7 +173,7 @@ export default function Index() {
               </h1>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-16">
+            <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-16 ">
               {/* Scroll Down Button */}
               <div ref={scrollDownButtonRef} className="relative w-32 h-32 flex-shrink-0 flex items-center justify-center opacity-0">
                 <img
@@ -187,7 +186,7 @@ export default function Index() {
 
               {/* Description */}
               <div ref={heroDescriptionRef} className="max-w-md space-y-6 flex flex-col items-center md:items-end opacity-0">
-                <p className="font-archivo text-white text-lg leading-relaxed text-left md:text-right">
+                <p className="font-archivo text-white text-lg leading-relaxed text-left ">
                   RRV International is a leading business solutions provider serving millions of small-to-medium businesses globally.
                 </p>
 
@@ -200,13 +199,13 @@ export default function Index() {
           </div>
 
           {/* Right Column - 3D Image */}
-          <div ref={heroImageRef} className="relative opacity-0">
+          {/* <div ref={heroImageRef} className="relative opacity-0">
             <img
               src="/spring.png"
               alt="3D Business Object"
               className="w-full max-w-lg mx-auto"
             />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -256,6 +255,16 @@ export default function Index() {
               </h2>
             </div>
 
+            {/* 3D Object */}
+                <div className=" relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg border bg-background px-40 pb-40 pt-8 md:pb-60">
+      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-blue-400 to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        Globally.
+      </span>
+      <Globe className="top-28" />
+      <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+    </div>
+
+
             {/* Right Column - Description */}
             <div ref={aboutDescriptionRef} className="space-y-6 opacity-0">
               <p className="font-archivo text-white text-lg leading-relaxed">
@@ -270,14 +279,7 @@ export default function Index() {
             </div>
           </div>
 
-          {/* 3D Object */}
-          <div ref={aboutObjectRef} className="flex justify-center mt-16 opacity-0">
-            <img
-              src="/round_tube.png"
-              alt="3D Sphere Object"
-              className="w-96 h-96"
-            />
-          </div>
+          
         </div>
       </section>
 
@@ -472,7 +474,7 @@ export default function Index() {
                     <h4 className="font-inter text-lg font-bold text-white mb-3">
                       Mailing Address
                     </h4>
-                    <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mb-6"></div>
+                    <div className="w-10 h-0.5 bg-blue-600/60"></div>
                   </div>
 
                   <div className="flex items-start gap-4">
@@ -491,7 +493,7 @@ export default function Index() {
                     <h4 className="font-inter text-lg font-bold text-white mb-3">
                       Headquarters
                     </h4>
-                    <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mb-6"></div>
+                    <div className="w-10 h-0.5 bg-blue-600/60"></div>
                   </div>
 
                   <div className="flex items-start gap-4">
@@ -510,14 +512,14 @@ export default function Index() {
                     <h4 className="font-inter text-lg font-bold text-white mb-3">
                       Get In Touch
                     </h4>
-                    <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mb-6"></div>
+                    <div className="w-10 h-0.5 bg-blue-600/60"></div>
                   </div>
 
                   <div className="bg-blue-500/10 rounded-xl p-6">
                     <p className="font-archivo text-gray-300 mb-4">
                       Ready to start your next project?
                     </p>
-                    <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2.5 rounded-lg font-archivo hover:shadow-lg transition-all duration-300 flex items-center gap-3">
+                    <button className="bg-blue-600/60 text-white px-6 py-2.5 rounded-lg font-archivo hover:shadow-lg transition-all duration-300 flex items-center gap-3">
                       Contact Us
                       <ArrowRight className="w-5 h-5" />
                     </button>
@@ -529,7 +531,7 @@ export default function Index() {
             {/* Footer Bottom */}
             <div className="border-t border-white/10 mt-12 pt-8 text-center">
               <p className="font-archivo text-gray-400 text-sm">
-                2025 RRV International. All rights reserved.
+                {year} RRV International. All rights reserved.
               </p>
             </div>
           </div>
