@@ -8,83 +8,175 @@ import {
   Mail,
   ArrowDown,
 } from "lucide-react";
+import Silk from "../components/Silk";
+import GradientText from "../components/GradientText";
+import React, { useEffect, useRef, Suspense } from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
+import { MobileMenu } from '../components/MobileMenu';
+
+const LazySilk = React.lazy(() => import('../components/Silk'));
+
+const useScrollAnimation = (animationClass: string, delay: string, threshold: number = 0.1) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(animationClass);
+            (entry.target as HTMLElement).style.animationDelay = delay;
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [animationClass, delay, threshold]);
+
+  return ref;
+};
 
 export default function Index() {
+  const isMobile = useIsMobile();
+  const navRef = useScrollAnimation("animate-fade-in", "0.1s");
+  const logoRef = useScrollAnimation("animate-slide-up", "0.2s");
+  const navLinksRef = useScrollAnimation("animate-slide-up", "0.3s");
+  const getStartedButtonRef = useScrollAnimation("animate-scale-in", "0.4s");
+  const heroBackgroundEffectRef = useScrollAnimation("animate-fade-in", "0.5s");
+  const heroTextContentRef = useScrollAnimation("animate-slide-up", "0.6s");
+  const scrollDownButtonRef = useScrollAnimation("animate-scale-in", "0.7s");
+  const heroDescriptionRef = useScrollAnimation("animate-slide-up", "0.8s");
+  const heroImageRef = useScrollAnimation("animate-fade-in", "0.9s");
+  const statsSectionRef = useScrollAnimation("animate-slide-up", "0.1s", 0.2);
+  const aboutSectionRef = useScrollAnimation("animate-fade-in", "0.1s", 0.2);
+  const aboutHeadingRef = useScrollAnimation("animate-slide-up", "0.2s");
+  const aboutDescriptionRef = useScrollAnimation("animate-slide-up", "0.3s");
+  const aboutObjectRef = useScrollAnimation("animate-scale-in", "0.4s");
+  const valuesSectionRef = useScrollAnimation("animate-fade-in", "0.1s", 0.2);
+  const valuesHeadingRef = useScrollAnimation("animate-slide-up", "0.2s");
+  const integrityCardRef = useScrollAnimation("animate-slide-up", "0.3s");
+  const customerCommitmentCardRef = useScrollAnimation("animate-slide-up", "0.4s");
+  const qualityCardRef = useScrollAnimation("animate-slide-up", "0.5s");
+  const servicesSectionRef = useScrollAnimation("animate-fade-in", "0.1s", 0.2);
+  const servicesHeadingRef = useScrollAnimation("animate-slide-up", "0.2s");
+  const servicesDescriptionRef = useScrollAnimation("animate-slide-up", "0.3s");
+  const brandingStrategyRef = useScrollAnimation("animate-scale-in", "0.4s");
+  const digitalPresenceRef = useScrollAnimation("animate-scale-in", "0.5s");
+  const businessSolutionsRef = useScrollAnimation("animate-scale-in", "0.6s");
+  const supportConsultingRef = useScrollAnimation("animate-scale-in", "0.7s");
+  const footerRef = useScrollAnimation("animate-fade-in", "0.1s", 0.2);
+  const footerContentRef = useScrollAnimation("animate-slide-up", "0.2s");
+
+  const navLinks = [
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#" },
+    { name: "Services", href: "#" },
+    { name: "Contact Us", href: "#" },
+  ];
+
+  const logoSrc = "/033eeb1bbc64a52788e481844e2ffeedef410811.png";
+  const getStartedButton = (
+    <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
+      Get Started
+      <ArrowRight className="w-6 h-4" />
+    </button>
+  );
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navigation Header */}
-      <nav className="relative z-50 w-full">
+      <nav ref={navRef} className="relative z-50 w-full opacity-0">
         <div className="max-w-7xl mx-auto px-5 py-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center">
+            <div ref={logoRef} className="flex items-center opacity-0">
               <img
-                src="/033eeb1bbc64a52788e481844e2ffeedef410811.png"
+                src={logoSrc}
                 alt="RRV International"
                 className="w-12 h-14"
               />
             </div>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                className="font-archivo text-white hover:text-blue-400 transition-colors px-4 py-2"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="font-archivo text-white hover:text-blue-400 transition-colors px-4 py-2"
-              >
-                About Us
-              </a>
-              <a
-                href="#"
-                className="font-archivo text-white hover:text-blue-400 transition-colors px-4 py-2"
-              >
-                Services
-              </a>
-              <a
-                href="#"
-                className="font-archivo text-white hover:text-blue-400 transition-colors px-4 py-2"
-              >
-                Contact Us
-              </a>
-            </div>
+            {isMobile ? (
+              <MobileMenu
+                logoSrc={logoSrc}
+                navLinks={navLinks}
+                getStartedButton={getStartedButton}
+              />
+            ) : (
+              <>
+                {/* Navigation Links */}
+                <div ref={navLinksRef} className="hidden md:flex items-center space-x-8 opacity-0">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="font-archivo text-white hover:text-blue-400 transition-colors px-4 py-2"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
 
-            {/* Get Started Button */}
-            <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
-              Get Started
-              <ArrowRight className="w-6 h-4" />
-            </button>
+                {/* Get Started Button */}
+                <div ref={getStartedButtonRef} className="opacity-0">
+                  {getStartedButton}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Suspense>
+            <div className="relative w-full h-full">
+              <LazySilk color="#0000FF" speed={2} noiseIntensity={0.5} />
+              <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black to-transparent"></div>
+            </div>
+          </Suspense>
+        </div>
         {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl opacity-70 -translate-x-32 -translate-y-12 transform rotate-12"></div>
+        <div ref={heroBackgroundEffectRef} className="absolute top-0 left-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl opacity-70 -translate-x-32 -translate-y-12 transform rotate-12 z-10 opacity-0"></div>
 
         <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* Left Column - Text Content */}
-          <div className="space-y-8">
+          <div ref={heroTextContentRef} className="space-y-8 opacity-0">
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
-                <span className="font-space-grotesk text-white">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-center lg:text-left">
+                <span className="font-space-grotesk text-white block">
                   A different way
                 </span>
-                <br />
-                <span className="font-space-grotesk text-white">to make</span>
-                <br />
-                <span className="font-bricolage text-blue-500">Business</span>
+                <span className="font-space-grotesk text-white block">
+                  to make
+                </span>
+                <GradientText
+                  className="inline-block mt-4 text-7xl md:text-8xl lg:text-9xl"
+                  colors={['#9c40ff', '#ffaa40', '#9c40ff']}
+                  animationSpeed={4}
+                >
+                  Business
+                </GradientText>
               </h1>
             </div>
 
             <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-16">
               {/* Scroll Down Button */}
-              <div className="relative w-32 h-32 flex-shrink-0 flex items-center justify-center">
+              <div ref={scrollDownButtonRef} className="relative w-32 h-32 flex-shrink-0 flex items-center justify-center opacity-0">
                 <img
                   src="/scroll-20button.png"
                   alt="Scroll down to see our latest work"
@@ -94,7 +186,7 @@ export default function Index() {
               </div>
 
               {/* Description */}
-              <div className="max-w-md space-y-6 flex flex-col items-center md:items-end">
+              <div ref={heroDescriptionRef} className="max-w-md space-y-6 flex flex-col items-center md:items-end opacity-0">
                 <p className="font-archivo text-white text-lg leading-relaxed text-left md:text-right">
                   RRV International is a leading business solutions provider serving millions of small-to-medium businesses globally.
                 </p>
@@ -108,7 +200,7 @@ export default function Index() {
           </div>
 
           {/* Right Column - 3D Image */}
-          <div className="relative">
+          <div ref={heroImageRef} className="relative opacity-0">
             <img
               src="/spring.png"
               alt="3D Business Object"
@@ -119,7 +211,7 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section ref={statsSectionRef} className="py-16 opacity-0">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid md:grid-cols-3 gap-12 text-center">
             <div>
@@ -147,14 +239,14 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 relative">
+      <section ref={aboutSectionRef} className="py-20 relative opacity-0">
         {/* Background Effect */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl opacity-60 translate-x-48 -translate-y-48 transform rotate-12"></div>
 
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Heading */}
-            <div>
+            <div ref={aboutHeadingRef} className="opacity-0">
               <h2 className="font-inter text-6xl font-bold text-white leading-tight mb-8">
                 We make your
                 <br />
@@ -165,7 +257,7 @@ export default function Index() {
             </div>
 
             {/* Right Column - Description */}
-            <div className="space-y-6">
+            <div ref={aboutDescriptionRef} className="space-y-6 opacity-0">
               <p className="font-archivo text-white text-lg leading-relaxed">
                 At <strong>RRV International</strong>, we believe business
                 growth should be simple, strategic, and sustainable. For over{" "}
@@ -179,7 +271,7 @@ export default function Index() {
           </div>
 
           {/* 3D Object */}
-          <div className="flex justify-center mt-16">
+          <div ref={aboutObjectRef} className="flex justify-center mt-16 opacity-0">
             <img
               src="/round_tube.png"
               alt="3D Sphere Object"
@@ -190,15 +282,15 @@ export default function Index() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20">
+      <section ref={valuesSectionRef} className="py-20 opacity-0">
         <div className="max-w-7xl mx-auto px-5">
-          <h2 className="font-inter text-6xl font-bold text-white text-center mb-16">
+          <h2 ref={valuesHeadingRef} className="font-inter text-6xl font-bold text-white text-center mb-16 opacity-0">
             Our values
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Integrity Card */}
-            <div className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden">
+            <div ref={integrityCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Layers className="w-10 h-10 text-blue-500" />
@@ -213,7 +305,7 @@ export default function Index() {
             </div>
 
             {/* Customer Commitment Card */}
-            <div className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden">
+            <div ref={customerCommitmentCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-10 h-10 text-blue-500" />
@@ -228,7 +320,7 @@ export default function Index() {
             </div>
 
             {/* Quality Card */}
-            <div className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden">
+            <div ref={qualityCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Star className="w-10 h-10 text-blue-500" />
@@ -246,10 +338,10 @@ export default function Index() {
       </section>
 
       {/* Our Services Section */}
-      <section className="py-20">
+      <section ref={servicesSectionRef} className="py-20 opacity-0">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
-            <div>
+            <div ref={servicesHeadingRef} className="opacity-0">
               <h2 className="font-inter text-6xl font-bold text-white leading-tight">
                 Our
                 <br />
@@ -257,7 +349,7 @@ export default function Index() {
               </h2>
             </div>
 
-            <div className="space-y-6">
+            <div ref={servicesDescriptionRef} className="space-y-6 opacity-0">
               <p className="font-archivo text-white text-lg leading-relaxed">
                 At RRV International, we deliver tailored business solutions in
                 branding, strategy, and digital growth designed to help
@@ -274,7 +366,7 @@ export default function Index() {
           {/* Services Grid */}
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Branding & Strategy */}
-            <div className="group cursor-pointer">
+            <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/aifyxhw328.jpg"
@@ -291,7 +383,7 @@ export default function Index() {
             </div>
 
             {/* Digital Presence & Design */}
-            <div className="group cursor-pointer">
+            <div ref={digitalPresenceRef} className="group cursor-pointer opacity-0">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/az1dahlnyfc.jpg"
@@ -308,7 +400,7 @@ export default function Index() {
             </div>
 
             {/* Business Solutions */}
-            <div className="group cursor-pointer">
+            <div ref={businessSolutionsRef} className="group cursor-pointer opacity-0">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/qvsm28o-k3y.jpg"
@@ -325,7 +417,7 @@ export default function Index() {
             </div>
 
             {/* Support & Consulting */}
-            <div className="group cursor-pointer">
+            <div ref={supportConsultingRef} className="group cursor-pointer opacity-0">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/feueg-8xla8.jpg"
@@ -345,9 +437,9 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-20">
+      <footer ref={footerRef} className="relative py-20 opacity-0">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 lg:p-12 backdrop-blur-sm">
+          <div ref={footerContentRef} className="bg-white/10 border border-white/20 rounded-2xl p-6 lg:p-12 backdrop-blur-sm opacity-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* Left Column - Company Info */}
               <div className="space-y-8">
