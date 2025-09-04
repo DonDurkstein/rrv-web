@@ -6,6 +6,7 @@ import {
   MapPin,
   Home as HomeIcon,
   Mail,
+  ArrowDown,
 } from "lucide-react";
 
 export default function Index() {
@@ -18,7 +19,7 @@ export default function Index() {
             {/* Logo */}
             <div className="flex items-center">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/033eeb1bbc64a52788e481844e2ffeedef410811?width=96"
+                src="/033eeb1bbc64a52788e481844e2ffeedef410811.png"
                 alt="RRV International"
                 className="w-12 h-14"
               />
@@ -81,22 +82,24 @@ export default function Index() {
               </h1>
             </div>
 
-            <div className="flex items-start gap-16">
-              {/* Rotating Badge */}
-              <div className="relative w-32 h-32">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center transform rotate-45">
-                  <ArrowRight className="w-8 h-8 text-white -rotate-45" />
-                </div>
+            <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-16">
+              {/* Scroll Down Button */}
+              <div className="relative w-32 h-32 flex-shrink-0 flex items-center justify-center">
+                <img
+                  src="/scroll-20button.png"
+                  alt="Scroll down to see our latest work"
+                  className="w-full h-full animate-rotate"
+                />
+                <ArrowDown className="absolute w-8 h-8 text-white animate-bounce-slow" />
               </div>
 
               {/* Description */}
-              <div className="max-w-md space-y-6">
-                <p className="font-archivo text-white text-lg leading-relaxed">
-                  RRV International is a leading business solutions provider
-                  serving millions of small-to-medium businesses globally.
+              <div className="max-w-md space-y-6 flex flex-col items-center md:items-end">
+                <p className="font-archivo text-white text-lg leading-relaxed text-left md:text-right">
+                  RRV International is a leading business solutions provider serving millions of small-to-medium businesses globally.
                 </p>
 
-                <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
+                <button className="font-archivo bg-transparent border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
                   Get in Touch
                   <ArrowRight className="w-6 h-4" />
                 </button>
@@ -107,7 +110,7 @@ export default function Index() {
           {/* Right Column - 3D Image */}
           <div className="relative">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/5a9f54913b9664d06cec489ead020732589e4771?width=1160"
+              src="/spring.png"
               alt="3D Business Object"
               className="w-full max-w-lg mx-auto"
             />
@@ -178,7 +181,7 @@ export default function Index() {
           {/* 3D Object */}
           <div className="flex justify-center mt-16">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/c47bbe6188112fcf2561a63c8884debd79d7d839?width=1200"
+              src="/round_tube.png"
               alt="3D Sphere Object"
               className="w-96 h-96"
             />
@@ -274,7 +277,7 @@ export default function Index() {
             <div className="group cursor-pointer">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/cf0cd340500ca816c1117dca13ca4ff178730d70?width=1110"
+                  src="/aifyxhw328.jpg"
                   alt="Branding & Strategy"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -291,7 +294,7 @@ export default function Index() {
             <div className="group cursor-pointer">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/2a06e38599997461b8dde6bd9209435e4cbb7078?width=1110"
+                  src="/az1dahlnyfc.jpg"
                   alt="Digital Presence & Design"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -308,7 +311,7 @@ export default function Index() {
             <div className="group cursor-pointer">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/b693f00af528967c8e1e47262135a7281d900ce2?width=1110"
+                  src="/qvsm28o-k3y.jpg"
                   alt="Business Solutions"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -325,7 +328,7 @@ export default function Index() {
             <div className="group cursor-pointer">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/8806f2d718ca92a0f4cf6c7e92530367b6fb36ff?width=1110"
+                  src="/feueg-8xla8.jpg"
                   alt="Support & Consulting"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -349,7 +352,7 @@ export default function Index() {
               {/* Left Column - Company Info */}
               <div className="space-y-8">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/feed8655b42c800dc542b59957b4739c647be5a3?width=300"
+                  src="/rrv-20logo-20hd-20bw-20-no-20background-20-1-.png"
                   alt="RRV International Logo"
                   className="w-32 h-36"
                 />
@@ -434,7 +437,7 @@ export default function Index() {
             {/* Footer Bottom */}
             <div className="border-t border-white/10 mt-12 pt-8 text-center">
               <p className="font-archivo text-gray-400 text-sm">
-                © 2025 RRV International. All rights reserved.
+                2025 RRV International. All rights reserved.
               </p>
             </div>
           </div>
