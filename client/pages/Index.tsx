@@ -81,17 +81,19 @@ export default function Index() {
 
   const navLinks = [
     { name: "Home", href: "#" },
-    { name: "About Us", href: "#" },
-    { name: "Services", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "About Us", href: "#about_us" },
+    { name: "Services", href: "#services" },
+    { name: "Contact Us", href: "#footer" },
   ];
 
   const logoSrc = "/033eeb1bbc64a52788e481844e2ffeedef410811.png";
   const getStartedButton = (
+    <a href="#footer">
     <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
       Get Started
       <ArrowRight className="w-6 h-4" />
     </button>
+    </a>
   );
   const currentYear = new Date();
   const [year, setYear] = useState(currentYear.getFullYear());
@@ -108,6 +110,7 @@ export default function Index() {
                 alt="RRV International"
                 className="w-12 h-14"
               />
+              <p className="ml-5 text-bold font-space-grotesk text-2xl">RRV International</p>
             </div>
 
             {isMobile ? (
@@ -189,11 +192,12 @@ export default function Index() {
                 <p className="font-archivo text-white text-lg leading-relaxed text-left ">
                   RRV International is a leading business solutions provider serving millions of small-to-medium businesses globally.
                 </p>
-
+                 <a href="#footer">
                 <button className="font-archivo bg-transparent border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
                   Get in Touch
                   <ArrowRight className="w-6 h-4" />
                 </button>
+                </a>
               </div>
             </div>
           </div>
@@ -238,7 +242,7 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section ref={aboutSectionRef} className="py-20 relative opacity-0">
+      <section ref={aboutSectionRef} className="py-20 relative opacity-0" id="about_us">
         {/* Background Effect */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/60 rounded-full blur-3xl opacity-60 translate-x-48 -translate-y-48 transform rotate-12"></div>
 
@@ -292,7 +296,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Integrity Card */}
-            <div ref={integrityCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
+            <div ref={integrityCardRef} className="group bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0 hover:scale-105 hover:shadow-lg transition-all duration-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Layers className="w-10 h-10 text-blue-500" />
@@ -307,7 +311,7 @@ export default function Index() {
             </div>
 
             {/* Customer Commitment Card */}
-            <div ref={customerCommitmentCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
+            <div ref={customerCommitmentCardRef} className="group bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0 hover:scale-105 hover:shadow-lg transition-all duration-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-10 h-10 text-blue-500" />
@@ -322,7 +326,7 @@ export default function Index() {
             </div>
 
             {/* Quality Card */}
-            <div ref={qualityCardRef} className="bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0">
+            <div ref={qualityCardRef} className="group bg-white/3 border border-white/10 rounded-xl p-8 relative overflow-hidden opacity-0 hover:scale-105 hover:shadow-lg transition-all duration-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <div className="bg-blue-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <Star className="w-10 h-10 text-blue-500" />
@@ -340,7 +344,7 @@ export default function Index() {
       </section>
 
       {/* Our Services Section */}
-      <section ref={servicesSectionRef} className="py-20 opacity-0">
+      <section ref={servicesSectionRef} className="py-20 opacity-0" id="services">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
             <div ref={servicesHeadingRef} className="opacity-0">
@@ -368,7 +372,7 @@ export default function Index() {
           {/* Services Grid */}
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Branding & Strategy */}
-            <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0">
+            <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/aifyxhw328.jpg"
@@ -385,7 +389,7 @@ export default function Index() {
             </div>
 
             {/* Digital Presence & Design */}
-            <div ref={digitalPresenceRef} className="group cursor-pointer opacity-0">
+            <div ref={digitalPresenceRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/az1dahlnyfc.jpg"
@@ -402,7 +406,7 @@ export default function Index() {
             </div>
 
             {/* Business Solutions */}
-            <div ref={businessSolutionsRef} className="group cursor-pointer opacity-0">
+            <div ref={businessSolutionsRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/qvsm28o-k3y.jpg"
@@ -419,7 +423,7 @@ export default function Index() {
             </div>
 
             {/* Support & Consulting */}
-            <div ref={supportConsultingRef} className="group cursor-pointer opacity-0">
+            <div ref={supportConsultingRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
                   src="/feueg-8xla8.jpg"
@@ -439,7 +443,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer ref={footerRef} className="relative py-20 opacity-0">
+      <footer ref={footerRef} className="relative py-20 opacity-0" id="footer">
         <div className="max-w-7xl mx-auto px-5">
           <div ref={footerContentRef} className="bg-white/10 border border-white/20 rounded-2xl p-6 lg:p-12 backdrop-blur-sm opacity-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
@@ -509,9 +513,11 @@ export default function Index() {
                 {/* Get In Touch */}
                 <div className="md:col-span-2 space-y-6">
                   <div>
+                    <a href="#footer">
                     <h4 className="font-inter text-lg font-bold text-white mb-3">
                       Get In Touch
                     </h4>
+                  </a>
                     <div className="w-10 h-0.5 bg-blue-600/60"></div>
                   </div>
 
@@ -519,10 +525,13 @@ export default function Index() {
                     <p className="font-archivo text-gray-300 mb-4">
                       Ready to start your next project?
                     </p>
+                    {/* Remember to add a whatsapp link here. */}
+                    <a href="#footer">
                     <button className="bg-blue-600/60 text-white px-6 py-2.5 rounded-lg font-archivo hover:shadow-lg transition-all duration-300 flex items-center gap-3">
                       Contact Us
                       <ArrowRight className="w-5 h-5" />
                     </button>
+                    </a>
                   </div>
                 </div>
               </div>
