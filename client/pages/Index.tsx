@@ -16,6 +16,7 @@ import { MobileMenu } from '../components/MobileMenu';
 import Orbiting from '../components/orbiting';
 const LazySilk = React.lazy(() => import('../components/Silk'));
 import { Globe } from "../components/magicui/globe";
+import WorldMap from "@/components/Location";
 
 const useScrollAnimation = (animationClass: string, delay: string, threshold: number = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -89,10 +90,10 @@ export default function Index() {
   const logoSrc = "/033eeb1bbc64a52788e481844e2ffeedef410811.png";
   const getStartedButton = (
     <a href="#footer">
-    <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
-      Get Started
-      <ArrowRight className="w-6 h-4" />
-    </button>
+      <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
+        Get Started
+        <ArrowRight className="w-6 h-4" />
+      </button>
     </a>
   );
   const currentYear = new Date();
@@ -225,13 +226,13 @@ export default function Index() {
             </div>
             <div>
               <h3 className="font-inter text-6xl font-bold text-white mb-2">
-                7M+
+                11M+
               </h3>
               <p className="font-inter text-xl text-white">Total Profits</p>
             </div>
             <div>
               <h3 className="font-inter text-6xl font-bold text-white mb-2">
-                5 +
+                7 +
               </h3>
               <p className="font-inter text-xl text-white">
                 Operation Countries
@@ -441,6 +442,7 @@ export default function Index() {
           </div>
         </div>
       </section>
+      <WorldMap />
 
       {/* Footer */}
       <footer ref={footerRef} className="relative py-20 opacity-0" id="footer">
