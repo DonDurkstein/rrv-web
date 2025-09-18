@@ -278,7 +278,7 @@ export default function Index() {
                 <strong>12 years</strong>, we've worked with organizations
                 across <strong>five countries</strong>, delivering solutions
                 that generate measurable results — more than{" "}
-                <strong>$2 million in total profits created</strong> for our
+                <strong>$11 million in total profits created</strong> for our
                 clients.
               </p>
             </div>
