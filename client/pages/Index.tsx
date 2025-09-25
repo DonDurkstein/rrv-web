@@ -90,10 +90,10 @@ export default function Index() {
   const logoSrc = "/033eeb1bbc64a52788e481844e2ffeedef410811.png";
   const getStartedButton = (
     <a href="#footer">
-      <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
+      {/* <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
         Get Started
         <ArrowRight className="w-6 h-4" />
-      </button>
+      </button> */}
     </a>
   );
   const currentYear = new Date();
@@ -136,9 +136,7 @@ export default function Index() {
                 </div>
 
                 {/* Get Started Button */}
-                <div ref={getStartedButtonRef} className="opacity-0">
                   {getStartedButton}
-                </div>
               </>
             )}
           </div>
@@ -363,10 +361,10 @@ export default function Index() {
                 companies thrive and achieve measurable results.
               </p>
 
-              <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
+              {/* <button className="font-archivo bg-black border border-white rounded-full px-8 py-2.5 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-4">
                 Get Started
                 <ArrowRight className="w-6 h-4" />
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -376,7 +374,7 @@ export default function Index() {
             <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/aifyxhw328.jpg"
+                  src="/branding.jpg"
                   alt="Branding & Strategy"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -385,7 +383,7 @@ export default function Index() {
                 <h3 className="font-inter text-2xl font-bold text-white">
                   Branding & Strategy
                 </h3>
-                <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                {/* <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" /> */}
               </div>
             </div>
 
@@ -393,7 +391,7 @@ export default function Index() {
             <div ref={digitalPresenceRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/az1dahlnyfc.jpg"
+                  src="/online.jpg"
                   alt="Digital Presence & Design"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -402,7 +400,7 @@ export default function Index() {
                 <h3 className="font-inter text-2xl font-bold text-white">
                   Digital Presence & Design
                 </h3>
-                <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                {/* <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" /> */}
               </div>
             </div>
 
@@ -410,7 +408,7 @@ export default function Index() {
             <div ref={businessSolutionsRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/qvsm28o-k3y.jpg"
+                  src="/solutions.jpg"
                   alt="Business Solutions"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -419,7 +417,7 @@ export default function Index() {
                 <h3 className="font-inter text-2xl font-bold text-white">
                   Business Solutions
                 </h3>
-                <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                {/* <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" /> */}
               </div>
             </div>
 
@@ -427,7 +425,7 @@ export default function Index() {
             <div ref={supportConsultingRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/feueg-8xla8.jpg"
+                  src="/consulting.jpg"
                   alt="Support & Consulting"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -436,7 +434,7 @@ export default function Index() {
                 <h3 className="font-inter text-2xl font-bold text-white">
                   Support & Consulting
                 </h3>
-                <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                {/* <ArrowRight className="w-16 h-16 text-white group-hover:translate-x-2 transition-transform duration-300" /> */}
               </div>
             </div>
           </div>

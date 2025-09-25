@@ -1,5 +1,4 @@
 import React from "react";
-import mapVideo from "./../map.mp4";
 
 /**
  * Location section with layout flipped
@@ -43,13 +42,25 @@ export default function Location() {
           <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.25)] overflow-hidden flex order-1 md:order-1">
             <div className="relative w-full h-[320px] sm:h-[420px] md:h-[560px] lg:h-[680px] xl:h-[800px]">
               <video
-                src={mapVideo}
+                src="/map.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="absolute inset-0 h-full w-full object-cover"
-              />
+                onError={(e) => {
+                  console.error('Video failed to load:', e);
+                  // Hide video container if it fails to load
+                  const target = e.target as HTMLVideoElement;
+                  if (target.parentElement) {
+                    target.parentElement.style.display = 'none';
+                  }
+                }}
+              >
+                <source src="/map.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
