@@ -374,7 +374,7 @@ export default function Index() {
             <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/branding-final.jpg"
+                  src="/online-final.png"
                   alt="Branding & Strategy"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
