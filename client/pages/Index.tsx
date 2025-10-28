@@ -17,6 +17,8 @@ import Orbiting from '../components/orbiting';
 const LazySilk = React.lazy(() => import('../components/Silk'));
 import { Globe } from "../components/magicui/globe";
 import WorldMap from "@/components/Location";
+import brandingImage from "@/public/branding-final.jpg";
+import consultingImage from "@/public/consulting-image.jpg"
 
 const useScrollAnimation = (animationClass: string, delay: string, threshold: number = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -374,7 +376,7 @@ export default function Index() {
             <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/online-final.png"
+                  src="/branding-final.jpg"
                   alt="Branding & Strategy"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
