@@ -374,7 +374,7 @@ export default function Index() {
             <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/branding-final.png"
+                  src="/branding-final.jpg"
                   alt="Branding & Strategy"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -408,7 +408,7 @@ export default function Index() {
             <div ref={businessSolutionsRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/solutions-final.png"
+                  src="/solutions-final.jpg"
                   alt="Business Solutions"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -425,7 +425,7 @@ export default function Index() {
             <div ref={supportConsultingRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
-                  src="/consulting-final.png"
+                  src="/consulting-final.jpg"
                   alt="Support & Consulting"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
