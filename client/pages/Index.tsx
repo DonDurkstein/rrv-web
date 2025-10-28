@@ -372,7 +372,7 @@ export default function Index() {
 
           {/* Services Grid */}
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Branding & Strategy */}
+            {/* Branding & Strategy update */}
             <div ref={brandingStrategyRef} className="group cursor-pointer opacity-0 hover:shadow-lg transition-all duration-300">
               <div className="overflow-hidden rounded-lg mb-8">
                 <img
