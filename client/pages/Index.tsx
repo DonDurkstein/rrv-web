@@ -513,7 +513,7 @@ export default function Index() {
                 </div>
 
                 {/* Get In Touch */}
-                <div className="md:col-span-2 space-y-6">
+                {/* <div className="md:col-span-2 space-y-6">
                   <div>
                     <a href="#footer">
                     <h4 className="font-inter text-lg font-bold text-white mb-3">
@@ -528,14 +528,14 @@ export default function Index() {
                       Ready to start your next project?
                     </p>
                     {/* Remember to add a whatsapp link here. */}
-                    <a href="#footer">
+                    {/* <a href="#footer">
                     <button className="bg-blue-600/60 text-white px-6 py-2.5 rounded-lg font-archivo hover:shadow-lg transition-all duration-300 flex items-center gap-3">
                       Contact Us
                       <ArrowRight className="w-5 h-5" />
                     </button>
                     </a>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
